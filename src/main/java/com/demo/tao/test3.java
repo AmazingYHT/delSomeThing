@@ -38,6 +38,11 @@ public class test3
         ticketList.add(TTicketInfoBean3);
         ticketList.add(TTicketInfoBean4);
 
+
+        Integer deliveryDays = ticketList.stream().map(TTicketInfoBean::getfSource).distinct().max((e1, e2) -> e1.compareTo(e2)).get();
+
+        System.out.println(deliveryDays);
+
         Stream<TTicketInfoBean> ticketInfoBeans=ticketList.stream().skip(2);
         System.out.println(JSONObject.toJSON(ticketInfoBeans));
         
